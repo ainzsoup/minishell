@@ -6,7 +6,7 @@
 /*   By: sgamraou <sgamraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:13:25 by sgamraou          #+#    #+#             */
-/*   Updated: 2022/06/23 12:49:09 by sgamraou         ###   ########.fr       */
+/*   Updated: 2022/07/22 23:03:58 by sgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,13 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <signal.h>
+#include <ctype.h>
+#include <readline/readline.h>
+#include <readline/history.h>
 # include "./include/lexer.h"
 # include "./include/token.h"
-void	ft_realloc(void	*src, size_t size);
+
+void	*ft_realloc(void	*src, size_t size);
 
 
 #endif

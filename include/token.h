@@ -6,7 +6,7 @@
 /*   By: sgamraou <sgamraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:13:53 by sgamraou          #+#    #+#             */
-/*   Updated: 2022/06/21 14:30:29 by sgamraou         ###   ########.fr       */
+/*   Updated: 2022/07/21 19:16:37 by sgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ typedef struct  s_token
 
 t_token *init_token(char *value, int type);
 t_token *lexer_next_token(t_lexer *lexer);
-t_token	*lexer_set_token_value(t_lexer *lexer, int type)
+t_token	*lexer_set_token_value(t_lexer *lexer, int type);
 
 #endif

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.c                                             :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgamraou <sgamraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:08:29 by sgamraou          #+#    #+#             */
-/*   Updated: 2022/06/23 12:12:03 by sgamraou         ###   ########.fr       */
+/*   Updated: 2022/06/24 12:29:39 by sgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	ft_realloc(void	*src, size_t size)
+void	*ft_realloc(void	*src, size_t size)
 {
 	char	*dest;
 

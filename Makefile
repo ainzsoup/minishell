@@ -1,18 +1,23 @@
-exec = a.out
-sources = $(wildcard src/*.c)
-objects = $(sources:.c=.o)
-flags = -g -Wall -Wextra -Werror
+SRC = main.c ft_realloc.c lexer/lexer.c lexer/token.c 
 
-$(exec): $(objects)
-	gcc $(objects) $(flags) -o $(exec)
+OBJ = $(SRC:.c=.o)
 
-%.o: %.c include/%.h
-	gcc -c $(flags) $< -o $@
+CC = gcc
+
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g3
+
+NAME = minishell
+
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) -lreadline $(OBJ) -o $(NAME)
+
+all : $(NAME)
 
 clean:
-	rm *.out
-	rm *.o
-	rm *.a
-	rm src/.*o
-lint:
-	clang-tidy src/*.c src/include/*.h
+	rm -f $(OBJ)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
