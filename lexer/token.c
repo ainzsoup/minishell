@@ -6,7 +6,7 @@
 /*   By: sgamraou <sgamraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:31:30 by sgamraou          #+#    #+#             */
-/*   Updated: 2022/07/25 13:56:35 by sgamraou         ###   ########.fr       */
+/*   Updated: 2022/07/25 15:14:01 by sgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,6 @@ t_token	*lexer_parse_id(t_lexer *lexer)
 	char	*value;
 	
 	value = malloc(sizeof(char) * 2);
-	// value[0] = lexer->c;
-	// value[1] = 0;
-	// lexer_advance(lexer);
 	while (istext(lexer->c))
 	{
 		if (lexer->c == '\"' || lexer->c == '\'')
@@ -64,8 +61,6 @@ t_token	*lexer_parse_id(t_lexer *lexer)
 t_token *lexer_next_token(t_lexer *lexer)
 {
 	lexer_skip_whitespace(lexer);
-	if (istext(lexer->c))
-		return(lexer_parse_id(lexer));
 	if (lexer->c == '|')
 		return(lexer_set_token_value(lexer, TOKEN_PIPE));
 	if (lexer->c == '>')
@@ -80,5 +75,8 @@ t_token *lexer_next_token(t_lexer *lexer)
 			return (lexer_set_token_value(lexer, TOKEN_DELIM));
 		return(lexer_set_token_value(lexer, TOKEN_RDIN));
 	}
-	return (lexer_set_token_value(lexer, TOKEN_EOF));
+	if (lexer->c == '\0')
+		return (lexer_set_token_value(lexer, TOKEN_EOF));
+	return(lexer_parse_id(lexer));
+	
 }

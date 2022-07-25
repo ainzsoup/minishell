@@ -6,7 +6,7 @@
 /*   By: sgamraou <sgamraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 11:54:52 by sgamraou          #+#    #+#             */
-/*   Updated: 2022/07/25 14:29:04 by sgamraou         ###   ########.fr       */
+/*   Updated: 2022/07/25 14:55:54 by sgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,19 @@ char	*get_quoted_string(t_lexer *lexer, char *value)
 	while (lexer->c != k)
 	{
 		if (lexer->c == 0)
-			lexer->error = 1;
+			{
+				lexer->error = 1;
+				break;
+			}
 		value = realloc(value, sizeof(char) * (strlen(value) + 2));
 		strcat(value, (char[]){lexer->c, 0});
 		lexer_advance(lexer);
 	}
-	value = realloc(value, sizeof(char) * (strlen(value) + 2));
-	strcat(value, (char[]){lexer->c, 0});
-	lexer_advance(lexer);
+	if (lexer->c == k)
+	{
+		value = realloc(value, sizeof(char) * (strlen(value) + 2));
+		strcat(value, (char[]){lexer->c, 0});
+		lexer_advance(lexer);
+	}
 	return (value);
 }

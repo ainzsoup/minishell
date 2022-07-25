@@ -6,7 +6,7 @@
 /*   By: sgamraou <sgamraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 11:37:35 by sgamraou          #+#    #+#             */
-/*   Updated: 2022/07/25 13:06:48 by sgamraou         ###   ########.fr       */
+/*   Updated: 2022/07/25 15:09:23 by sgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int	istext(char c)
 {
-	if (c == '|' || c == '<' || c == '>'
-		|| c == 0 || c == ' ')
-		return (0);
-	return (1);//strchr
+	if (strchr("| <>\0", c) == NULL)
+		return (1);
+	return (0);
 }
