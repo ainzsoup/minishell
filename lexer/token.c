@@ -6,7 +6,7 @@
 /*   By: sgamraou <sgamraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:31:30 by sgamraou          #+#    #+#             */
-/*   Updated: 2022/07/22 22:49:03 by sgamraou         ###   ########.fr       */
+/*   Updated: 2022/07/25 11:49:05 by sgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_token	*lexer_parse_id(t_lexer *lexer)
 	value[0] = lexer->c;
 	value[1] = 0;
 	lexer_advance(lexer);
-	while (isalnum(lexer->c))
+	while (istext(lexer->c))
 	{
 		value = realloc(value, sizeof(char) * (strlen(value) + 2));
 		strcat(value, (char[]){lexer->c, 0});
@@ -59,8 +59,9 @@ t_token	*lexer_parse_id(t_lexer *lexer)
 t_token *lexer_next_token(t_lexer *lexer)
 {
 	lexer_skip_whitespace(lexer);
-	if (isalnum(lexer->c))
-		return (lexer_parse_id(lexer));
+
+	if (istext(lexer->c))
+		return(lexer_parse_id(lexer));
 	if (lexer->c == '|')
 		return(lexer_set_token_value(lexer, TOKEN_PIPE));
 	if (lexer->c == '>')

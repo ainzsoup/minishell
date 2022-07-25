@@ -1,4 +1,4 @@
-SRC = main.c ft_realloc.c lexer/lexer.c lexer/token.c 
+SRC = main.c ft_realloc.c lexer/lexer.c lexer/token.c utils/istext.c
 
 OBJ = $(SRC:.c=.o)
 
