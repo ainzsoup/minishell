@@ -6,7 +6,7 @@
 /*   By: sgamraou <sgamraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:42:26 by sgamraou          #+#    #+#             */
-/*   Updated: 2022/07/22 22:34:06 by sgamraou         ###   ########.fr       */
+/*   Updated: 2022/07/25 14:02:33 by sgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_lexer *init_lexer(char *src) {
 	lexer->src = src;
 	lexer->src_size = strlen(src);
 	lexer->c = src[lexer->i];
+	lexer->error = 0;
 	return (lexer);
 }
 
@@ -36,7 +37,6 @@ void	lexer_skip_whitespace(t_lexer *lexer) {
 		lexer_advance(lexer);
 }
 
-//////////////////////////// doesn't work ////////////////////////////////
 char	lexer_peek(t_lexer *lexer, int offset) { 
 	return (lexer->src[MIN(lexer->i + offset, lexer->src_size)]);
 }

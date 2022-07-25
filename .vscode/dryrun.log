@@ -1,11 +1,12 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/sgamraou/Desktop/minishell'
 gcc -Wall -Wextra -Werror    -c -o main.o main.c
- 
 gcc -Wall -Wextra -Werror    -c -o ft_realloc.o ft_realloc.c
+ 
 gcc -Wall -Wextra -Werror    -c -o lexer/lexer.o lexer/lexer.c
 gcc -Wall -Wextra -Werror    -c -o lexer/token.o lexer/token.c
 gcc -Wall -Wextra -Werror    -c -o utils/istext.o utils/istext.c
-gcc -Wall -Wextra -Werror  -lreadline main.o ft_realloc.o lexer/lexer.o lexer/token.o utils/istext.o -o minishell
+gcc -Wall -Wextra -Werror    -c -o utils/get_quoted_string.o utils/get_quoted_string.c
+gcc -Wall -Wextra -Werror  -lreadline main.o ft_realloc.o lexer/lexer.o lexer/token.o utils/istext.o utils/get_quoted_string.o -o minishell
 make: Leaving directory `/Users/sgamraou/Desktop/minishell'
  

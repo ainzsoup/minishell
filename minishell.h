@@ -6,7 +6,7 @@
 /*   By: sgamraou <sgamraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:13:25 by sgamraou          #+#    #+#             */
-/*   Updated: 2022/07/25 11:44:00 by sgamraou         ###   ########.fr       */
+/*   Updated: 2022/07/25 12:23:19 by sgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 
 void	*ft_realloc(void	*src, size_t size);
 int 	istext(char c);
+char	*get_quoted_string(t_lexer *lexer, char *value);
 
 
 

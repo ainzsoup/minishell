@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `main.o', needed by `minishell'.  Stop.
 
 
-# Make data base, printed on Mon Jul 25 11:43:38 2022
+# Make data base, printed on Mon Jul 25 13:49:57 2022
 
 # Variables
 
@@ -21,7 +21,7 @@ make: *** No rule to make target `main.o', needed by `minishell'.  Stop.
 # makefile (from `Makefile', line 3)
 OBJ = $(SRC:.c=.o)
 # makefile (from `Makefile', line 1)
-SRC = main.c ft_realloc.c lexer/lexer.c lexer/token.c utils/istext.c
+SRC = main.c ft_realloc.c lexer/lexer.c lexer/token.c utils/istext.c utils/get_quoted_string.c
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
@@ -45,7 +45,7 @@ MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_CWD = /
 # environment
-Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.jRO3aZlTvZ/Render
+Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.DMIzMZHeGM/Render
 # environment
 NO_PROXY = 127.0.0.1
 # environment
@@ -55,7 +55,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.G3ywsyfB0D/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.4lWDEHbJaO/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -83,7 +83,7 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
-PLATFORMIO_PATH = /Users/sgamraou/.platformio/penv/bin:/Users/sgamraou/.platformio/penv:/Users/sgamraou/.platformio/python3/bin:/Users/sgamraou/node-v16.13.1-darwin-x64/bin/:/Users/sgamraou/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Frameworks/Mono.framework/Versions/Current/Commands
+PLATFORMIO_PATH = /Users/sgamraou/.platformio/python3/bin:/Users/sgamraou/node-v16.13.1-darwin-x64/bin/:/Users/sgamraou/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Frameworks/Mono.framework/Versions/Current/Commands
 # default
 MAKE = $(MAKE_COMMAND)
 # default
@@ -129,7 +129,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000003.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -161,7 +161,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 6202
+VSCODE_PID = 1379
 # variable set hash-table stats:
 # Load=74/1024=7%, Rehash=0, Collisions=5/102=5%
 
@@ -198,13 +198,13 @@ all: minishell
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-25 11:43:29
+#  Last modified 2022-07-25 12:23:02
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-minishell: main.o ft_realloc.o lexer/lexer.o lexer/token.o utils/istext.o
+minishell: main.o ft_realloc.o lexer/lexer.o lexer/token.o utils/istext.o utils/get_quoted_string.o
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
@@ -262,6 +262,12 @@ main.o:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
+utils/get_quoted_string.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 lexer/token.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -274,7 +280,7 @@ utils/istext.o:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=13/1024=1%, Rehash=0, Collisions=2/35=6%
+# Load=14/1024=1%, Rehash=0, Collisions=2/37=5%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -286,6 +292,6 @@ utils/istext.o:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Jul 25 11:43:38 2022
+# Finished Make data base on Mon Jul 25 13:49:57 2022
 
  

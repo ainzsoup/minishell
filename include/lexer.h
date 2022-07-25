@@ -6,7 +6,7 @@
 /*   By: sgamraou <sgamraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:43:33 by sgamraou          #+#    #+#             */
-/*   Updated: 2022/07/22 23:19:38 by sgamraou         ###   ########.fr       */
+/*   Updated: 2022/07/25 12:42:29 by sgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct  s_lexer
 	size_t			src_size;
 	char			c;
 	unsigned int	i;
+	int				error;
 }	t_lexer;
 
 t_lexer *init_lexer(char *src);

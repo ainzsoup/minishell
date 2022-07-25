@@ -1,4 +1,4 @@
-SRC = main.c ft_realloc.c lexer/lexer.c lexer/token.c utils/istext.c
+SRC = main.c ft_realloc.c lexer/lexer.c lexer/token.c utils/istext.c utils/get_quoted_string.c
 
 OBJ = $(SRC:.c=.o)
 

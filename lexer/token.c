@@ -6,7 +6,7 @@
 /*   By: sgamraou <sgamraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:31:30 by sgamraou          #+#    #+#             */
-/*   Updated: 2022/07/25 11:49:05 by sgamraou         ###   ########.fr       */
+/*   Updated: 2022/07/25 13:56:35 by sgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,19 @@ t_token	*lexer_parse_id(t_lexer *lexer)
 	char	*value;
 	
 	value = malloc(sizeof(char) * 2);
-	value[0] = lexer->c;
-	value[1] = 0;
-	lexer_advance(lexer);
+	// value[0] = lexer->c;
+	// value[1] = 0;
+	// lexer_advance(lexer);
 	while (istext(lexer->c))
 	{
-		value = realloc(value, sizeof(char) * (strlen(value) + 2));
-		strcat(value, (char[]){lexer->c, 0});
-		lexer_advance(lexer);	
+		if (lexer->c == '\"' || lexer->c == '\'')
+			value = get_quoted_string(lexer, value);
+		else
+		{
+			value = realloc(value, sizeof(char) * (strlen(value) + 2));
+			strcat(value, (char[]){lexer->c, 0});
+			lexer_advance(lexer);	
+		}
 	}
 	return (init_token(value, TOKEN_ID));	
 }
@@ -59,7 +64,6 @@ t_token	*lexer_parse_id(t_lexer *lexer)
 t_token *lexer_next_token(t_lexer *lexer)
 {
 	lexer_skip_whitespace(lexer);
-
 	if (istext(lexer->c))
 		return(lexer_parse_id(lexer));
 	if (lexer->c == '|')
@@ -76,9 +80,5 @@ t_token *lexer_next_token(t_lexer *lexer)
 			return (lexer_set_token_value(lexer, TOKEN_DELIM));
 		return(lexer_set_token_value(lexer, TOKEN_RDIN));
 	}
-	if (lexer->c == '\"')
-		return (lexer_set_token_value(lexer, TOKEN_DQUOTES));
-	if (lexer->c == '\'')
-		return (lexer_set_token_value(lexer, TOKEN_SQUOTES));
 	return (lexer_set_token_value(lexer, TOKEN_EOF));
 }

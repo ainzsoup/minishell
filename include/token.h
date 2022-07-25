@@ -6,7 +6,7 @@
 /*   By: sgamraou <sgamraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:13:53 by sgamraou          #+#    #+#             */
-/*   Updated: 2022/07/21 19:16:37 by sgamraou         ###   ########.fr       */
+/*   Updated: 2022/07/25 12:51:24 by sgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ typedef struct  s_token
 		TOKEN_RDIN,
 		TOKEN_RDOUT,
 		TOKEN_PIPE,
-		TOKEN_DQUOTES,
-		TOKEN_SQUOTES,
 		TOKEN_DELIM,
 		TOKEN_APPEND,
 		TOKEN_EOF,
